@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-app1
+  namespace: backend
+spec:
+  selector:
+    matchLabels:
+      app: apache-app1
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: apache-app1
+    spec:
+      containers:
+      - name: apache-app1
+        image: apache:latest
+        ports:
+        - containerPort: 80
